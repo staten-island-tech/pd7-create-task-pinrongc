@@ -1,6 +1,8 @@
 import './style.css'
 
-const cat = "https://catfact.ninja/fact?max_length=140"
+//const cat = "https://catfact.ninja/fact?max_length=140"
+
+const cat = "https://cataas.com/cat"
 //const dog = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
 
 //const fact = "https://official-joke-api.appspot.com/random_joke";
@@ -19,6 +21,7 @@ async function getData(url) {
         const data = await response.json();
 
         document.getElementById("api-response").textContent = data.fact;
+        document.getElementById("api-response").insertAdjacentHTML ("beforeend", `${data.image}`)
         
        // document.getElementById("api-response").insertAdjacentHTML("beforeend", `${data.setup} ${data.punchline}`);
        
