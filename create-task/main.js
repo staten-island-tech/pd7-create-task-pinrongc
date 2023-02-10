@@ -7,7 +7,7 @@ const dog = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
 const fact = "https://official-joke-api.appspot.com/random_joke";
 
 const DOMselectors = {
-button: document.getElementById ("api")
+btn: document.getElementById ("cat")
 }
 
 async function getData(url) {
@@ -29,8 +29,9 @@ async function getData(url) {
     }
     
     getData(fact);
-    
-      DOMselectors.api.addEventListener ("click", function (){
+
+
+      DOMselectors.cat.addEventListener ("click", function (){
         getData(fact);
         })  
     
