@@ -1,10 +1,13 @@
 import './style.css'
 
-const cat = "https://catfact.ninja/fact?max_length=140"
+//const cat = "https://randomfox.ca/floof"
+
 //const dog = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
 
 //const fact = "https://official-joke-api.appspot.com/random_joke";
 
+
+const cat = "http://shibe.online/api/cats"
 
 async function getData(url) {
     try{
@@ -15,10 +18,10 @@ async function getData(url) {
       }else {
         const data = await response.json();
 
-        document.getElementById("api-response").textContent = data.fact;
+        //document.getElementById("api-response").textContent = data.fact;
         
 
-       // document.getElementById("api-response").insertAdjacentHTML("beforeend", `${data.setup} ${data.punchline}`);
+      document.getElementById("api-response").insertAdjacentHTML("beforeend",`<img src="${data}" alt="">`);
        
         console.log(data)}
 
@@ -27,8 +30,14 @@ async function getData(url) {
         console.log("sad");
       } 
     }
-    
+  
     getData(cat);
     
+const DOMselectors = {
+  cat: document.getElementById ("api")
+}
   
+    DOMselectors.api.addEventListener ("click", function (){
+      getData(cat);
+      })  
 
