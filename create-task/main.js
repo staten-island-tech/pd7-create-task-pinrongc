@@ -32,6 +32,7 @@ async function getData(url) {
     }
   
     getData(cat);
+
     
 const DOMselectors = {
   cat: document.getElementById ("api")
