@@ -23,7 +23,6 @@ async function getData(url) {
         //document.getElementById("api-response").textContent = data.fact;
         
       document.getElementById("api-response").insertAdjacentHTML("beforeend",`<img src="${data}" alt="">`);
-       
         console.log(data)}
 
     } catch (error){
@@ -36,7 +35,8 @@ async function getData(url) {
     
 const DOMselectors = {
   cat: document.getElementById ("cat"),
-  form: document.getElementById ("form")
+  form: document.getElementById ("form"),
+  input: document.getElementById ("input")
 }
 console.log(DOMselectors);
   
@@ -44,8 +44,13 @@ DOMselectors.cat.addEventListener ("click", function (){
   getData(cat);
   })  
 
+  const cards = function (menu){ 
+
+    
+  }, 
+
 DOMselectors.form.addEventListener("submit", function (event){
-let result = DOMselectors.input.value;
+let result = DOMselectors.input.value
 const url = `http://shibe.online/api/shibes?count=${result}`;
 event.preventDefault();
 getData(url)
