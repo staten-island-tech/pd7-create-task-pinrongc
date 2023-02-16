@@ -44,10 +44,10 @@ DOMselectors.cat.addEventListener ("click", function (){
   getData(cat);
   })  
 
-  const cards = function (menu){ 
+ // const cards = function (menu){ 
 
     
-  }, 
+  //}, 
 
 DOMselectors.form.addEventListener("submit", function (event){
 let result = DOMselectors.input.value
