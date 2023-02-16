@@ -19,20 +19,20 @@ async function getData(url) {
         throw error(response);
       }else {
         const data = await response.json();
-
-        //document.getElementById("api-response").textContent = data.fact;
-        
-      document.getElementById("api-response").insertAdjacentHTML("beforeend",`<img src="${data}" alt="">`);
+        function createCards(data) {
+      document.getElementById("api-response").insertAdjacentHTML   ("beforeend",`<img src="${data}" alt="">`);
         console.log(data)}
-
-    } catch (error){
+        data.forEach((cat) => createCards(cat));
+        //document.getElementById("api-response").textContent = data.fact;
+      }
+      } catch (error){
         console.log(error);
         console.log("sad");
       } 
     }
   
     getData(cat);
-    
+
 const DOMselectors = {
   cat: document.getElementById ("cat"),
   form: document.getElementById ("form"),
@@ -45,9 +45,9 @@ DOMselectors.cat.addEventListener ("click", function (){
   })  
 
  // const cards = function (menu){ 
-
-    
   //}, 
+
+
 
 DOMselectors.form.addEventListener("submit", function (event){
 let result = DOMselectors.input.value
