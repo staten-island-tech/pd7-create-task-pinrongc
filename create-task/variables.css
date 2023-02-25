@@ -1,0 +1,18 @@
+:root{
+    --black: #000000;
+    --azure: #F0FFFF;
+    --AntiqueWhite: #FAEBD7;
+
+}
+
+.dark {
+    --background: var(--black);
+    --button: var(--AntiqueWhite);
+    --top:var(--AntiqueWhite)
+}
+
+.light{
+    --background: var(var(--azure));
+    --button: var(--black);
+    --top: var(--black)
+}

@@ -2,4 +2,26 @@
 
 img {
     margin: 0px 10px 20px 30px;
+    height: 40rem;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    flex-wrap: wrap;
+    width: 300px;
+    height: 250px;
+    margin: 0px 10px 20px 30px;
+}
+
+body{
+    background-color: var(--background);
+    text-align: center;
+}
+
+form{
+background-color: var(--top);
+}
+
+.buttons{ 
+    text-align: center;
+    background-color: var(--button);
 }
