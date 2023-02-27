@@ -66,7 +66,6 @@ restart.addEventListener("click", () => {
 })
 
 
-
 DOMselectors.theme.addEventListener("click", function() {
   if(document.body.classList.contains("dark")){
   document.body.classList.add("light");
@@ -87,6 +86,23 @@ DOMselectors.theme.addEventListener("click", function() {
 }
 remove();   */
 
+const history [];
+async function fetchData(){
+  let url = `http://shibe.online/api/cats?count=${result}`;
+  let rawData;
+  let dataObject = {};
+  try {
+    const response = await fetch(url);
+    rawData = await response.json;
+    dataObject.result = rawData.result;
+
+    console.log(dataObject);
+    displaycontent(dataObject);
+    history.push(dataObject)
+
+
+  }
+}
 
 
 
