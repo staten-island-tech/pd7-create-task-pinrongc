@@ -1,17 +1,12 @@
 import './style.css'
 
-//const cat = "https://randomfox.ca/floof"
-//const dog = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
-//const fact = "https://official-joke-api.appspot.com/random_joke";
-
 //const cat = "http://shibe.online/api/cats"
 
-//const apikey =
-//"live_xiXRiLpizUwPBdLWpw9miwbyUjWdKECZjiGDjhaGRA1FsdiLQRUOUfUgfmbtZRqj";
+const history = [];
 
 async function getData(url) {
     try{
-      const response = await fetch(url) //{ headers: { "x-api-key": apikey } });
+      const response = await fetch(url) 
       if(response.status <200 || response.status >299){
         console.log(response.status);
         throw error(response);
@@ -21,7 +16,8 @@ async function getData(url) {
       document.getElementById("box").insertAdjacentHTML ("beforeend",`<img src="${data}" alt="">`)};
         console.log(data)
         data.forEach((cat) => createCards(cat));
-        //document.getElementById("api-response").textContent = data.fact;
+        data.forEach((cat) => history.push(cat));
+        console.log(history)
       }
       } catch (error){
         console.log(error);
@@ -41,11 +37,6 @@ const DOMselectors = {
   display: document.getElementById("apiresponse")
 }
 console.log(DOMselectors.theme);
-  
-/* DOMselectors.cat.addEventListener ("click", function (){
-  getData(cat);
-  })   */
-
 
 DOMselectors.form.addEventListener("submit", function (event){
 let result = DOMselectors.input.value
@@ -62,7 +53,7 @@ function clear(){
 const restart = 
 document.getElementById(`reset`);
 restart.addEventListener("click", () => {
-  document.location.reload();
+  document.getElementById("box").innerHTML = "";
 })
 
 
@@ -77,33 +68,19 @@ DOMselectors.theme.addEventListener("click", function() {
  } 
  }); 
 
-
 /* function remove(){
   let removebtn = document.getElementById(`remove`)
   removebtn.addEventListener("click", function(){
     document.getElementById(`display`).remove()
   })
 }
-remove();   */
+remove();   */  
 
-const history [];
-async function fetchData(){
-  let url = `http://shibe.online/api/cats?count=${result}`;
-  let rawData;
-  let dataObject = {};
-  try {
-    const response = await fetch(url);
-    rawData = await response.json;
-    dataObject.result = rawData.result;
-
-    console.log(dataObject);
-    displaycontent(dataObject);
-    history.push(dataObject)
-
-
-  }
-}
-
-
-
+DOMselectors.history.onclick =() => {
+  console.log(history);
+  document.getElementById("box").innerHTML = "";
+  history.forEach((cat) => createCards(cat));
+  function createCards(cat) {
+    document.getElementById("box").insertAdjacentHTML("beforeend",`<img src="${cat}" alt="">`)};
+ } 
 
