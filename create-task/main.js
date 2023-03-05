@@ -68,13 +68,7 @@ DOMselectors.theme.addEventListener("click", function() {
  } 
  }); 
 
-/* function remove(){
-  let removebtn = document.getElementById(`remove`)
-  removebtn.addEventListener("click", function(){
-    document.getElementById(`display`).remove()
-  })
-}
-remove();   */  
+
 
 DOMselectors.history.onclick =() => {
   console.log(history);
