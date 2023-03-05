@@ -4,7 +4,7 @@ import './style.css'
 
 const history = [];
 
-async function getData(url) {
+async function fetchData(url) {
     try{
       const response = await fetch(url) 
       if(response.status <200 || response.status >299){
@@ -17,7 +17,7 @@ async function getData(url) {
         console.log(data)
         data.forEach((cat) => createCards(cat));
         data.forEach((cat) => history.push(cat));
-        console.log(history)
+        console.log(history);
       }
       } catch (error){
         console.log(error);
@@ -25,7 +25,7 @@ async function getData(url) {
       } 
     
     }
-    getData(cat);
+    fetchData(cat);
 
 const DOMselectors = {
   cat: document.getElementById ("cat"),
@@ -34,6 +34,7 @@ const DOMselectors = {
   theme: document.getElementById("theme"),
   history: document.getElementById("history"),
   remove: document.getElementById("reset"),
+  box: document.getAnimations ("box"),
   display: document.getElementById("apiresponse")
 }
 console.log(DOMselectors.theme);
@@ -42,20 +43,13 @@ DOMselectors.form.addEventListener("submit", function (event){
 let result = DOMselectors.input.value
 const url = `http://shibe.online/api/cats?count=${result}`;
 event.preventDefault();
-getData(url);
+fetchData(url);
 clear();
 })
 
 function clear(){
   DOMselectors.input.value= "";
 }
-
-const restart = 
-document.getElementById(`reset`);
-restart.addEventListener("click", () => {
-  document.getElementById("box").innerHTML = "";
-})
-
 
 DOMselectors.theme.addEventListener("click", function() {
   if(document.body.classList.contains("dark")){
@@ -68,6 +62,11 @@ DOMselectors.theme.addEventListener("click", function() {
  } 
  }); 
 
+const restart = 
+document.getElementById(`reset`);
+restart.addEventListener("click", () => {
+  document.getElementById("box").innerHTML = "";
+})
 
 
 DOMselectors.history.onclick =() => {
