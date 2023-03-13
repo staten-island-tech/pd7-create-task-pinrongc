@@ -1,7 +1,5 @@
 import './style.css'
 
-//const cat = "http://shibe.online/api/cats"
-
 const history = [];
 
 async function fetchData(url) {
